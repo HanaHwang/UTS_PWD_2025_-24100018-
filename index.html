@@ -5,6 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlowUp - Temukan Make Up Artist Impianmu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    :root{
+        --gradient-bg: linear-gradient(to right, #ff69b4, #d04894);
+        --pink-muda: #f8c8dc;
+        --pink-utama: #ff69b4;
+        --pink-tua: #d04894;
+        --text: #333;
+        --light-pink: #fff0f5;
+    }
+    
+    body {
+    font-family: 'Segeo UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-pink);
+    }
+
+    header {
+        background: var(--gradient-bg);
+        color: var(--light-pink);
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    header h1{
+        size: 2.8rem;
+        margin-bottom: 10px;
+        animation: bounce 2s;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 30px;
+        border-radius: 50px;
+        border: none;
+        background: white;
+        color: var(--pink-tua);
+        font-weight: 700;
+        transform: 0.3s ease;
+
+    }
+
+    .btn:hover{
+        background: var(--pink-muda);
+    }
+
+    section{
+      background: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    input{
+      border-radius: 5px;
+      border-color: rgb(229, 227, 227);
+      padding: 10px 15px;
+    }
+
+    select{
+      padding: 10px 15px;
+      border-radius: 5px;
+      border-color: lightgrey;
+    }
+
+    button{
+      background: var(--pink-utama);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    section{
+      background: #fff0f5;
+    }
+
+    .cta{
+      background: #f8c8dc;
+    }
+
+    footer{
+      background: var(--pink-utama);
+      color: var(--light-pink);
+      text-align: center;
+      padding: 5px 20px;
+    }
+
+</style>
 </head>
 <body>
   <header>
