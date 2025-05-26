@@ -232,5 +232,22 @@ footer{
   <footer>
     <p>&copy; 2025 GlowUp</p>
   </footer>
+
+  <script>
+    const locationInput = document.querySelector('input[type="text"]');
+    const locationOutput = document.createElement('div');
+    locationOutput.style.marginTop = '10px';
+    locationOutput.style.color = '#d04894';
+
+    document.querySelector('.search-form').appendChild(locationOutput);
+    
+    locationInput.addEventListener('input', () => {
+      locationOutput.textContent = locationInput.value.trim()
+        ? `Lokasi yang diketik: ${locationInput.value}`
+        : '';
+    });
+  </script>
+
 </body>
 </html>
+
