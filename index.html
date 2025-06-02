@@ -204,6 +204,9 @@ footer{
       </select>
       <button type="submit">Cari Sekarang</button>
     </form>
+
+    <div id="search-results" style="margin-top: 30px;"></div>
+
   </section>
   <section class="features">
     <div class="feature-box">
@@ -238,16 +241,73 @@ footer{
     const locationOutput = document.createElement('div');
     locationOutput.style.marginTop = '10px';
     locationOutput.style.color = '#d04894';
-
     document.querySelector('.search-form').appendChild(locationOutput);
-    
     locationInput.addEventListener('input', () => {
       locationOutput.textContent = locationInput.value.trim()
         ? `Lokasi yang diketik: ${locationInput.value}`
         : '';
     });
+
+    const searchForm = document.querySelector('.search-form');
+    const categorySelect = document.getElementById('category');
+    searchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!locationInput.value.trim() || !categorySelect.value) {
+        alert('Harap isi lokasi dan pilih kategori.');
+      } else {
+        alert(`Mencari MUA di ${locationInput.value}, kategori ${categorySelect.value}`);
+        filterMUA(categorySelect.value);
+      }
+    });
+
+    const resultsContainer = document.getElementById('search-results');
+    searchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const lokasi = locationInput.value.trim();
+      const kategori = categorySelect.value;
+      if (!lokasi || kategori === 'Pilih Kategori') {
+        alert('Harap isi lokasi dan pilih kategori.');
+        resultsContainer.textContent = '';
+      } else {
+        resultsContainer.textContent = `Hasil pencarian untuk ${lokasi} - ${kategori}`;
+      }
+    });
+
+    const features = document.querySelector('.features');
+
+    function addMUA(name, desc) {
+      const div = document.createElement('div');
+      div.className = 'feature-box';
+      div.innerHTML = `<i class="fas fa-user"></i><h3>${name}</h3><p>${desc}</p>`;
+      features.appendChild(div);
+    }
+
+    const MUA_LIST = [
+      {name: 'Nabil Bridal', category: 'Wedding'},
+      {name: 'Meri Studio', category: 'Photoshoot'},
+      {name: 'Karolina Makeover', category: 'Graduation'},
+      {name: 'JOBI TEAM', category: 'Daily Look'},
+    ];
+
+    function filterMUA(kategori){
+      features.innerHTML = '';
+      MUA_LIST.filter(mua => mua.category === kategori).forEach(mua => {
+        addMUA(mua.name, `Kategori: ${mua.category}`);
+      });
+    }
+
+    feature,addEventListener('mouseover', e => {
+      if (e.target.closet('.feature-box')) {
+        e.target.closest('.feature-box').style.transform = 'scale(1.05)';
+      }
+    });
+    
+    features.addEventListener('mouseover', e => {
+      if (e.target.closest('.feature-box')) {
+        e.target.closest('.feature-box').style.transform = 'scale(1)';
+      }
+    });
   </script>
 
 </body>
 </html>
-
